@@ -13,13 +13,11 @@ public class Main {
         // InputStream in = new FileInputStream("C:\\zzz\\dog.jpg");
         OutputStream out = new FileOutputStream("C:\\zzz\\copy.mp4");
 
-        while(true) {
-            int data = in.read();
-//            System.out.println(data);
+        byte[] buffer = new byte[4096];
+        int bytesRead;
 
-            if(data == -1) {    // 더 이상 읽어야 하는 데이터가 없는 경우
-                break;
-            }
+        while((bytesRead = in.read(buffer)) != -1) {
+            out.write(buffer, 0, bytesRead);
         }
 
         in.close();

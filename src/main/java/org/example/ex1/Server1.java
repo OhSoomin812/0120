@@ -18,6 +18,7 @@ public class Server1 {
         @Cleanup
         ServerSocket serverSocket = new ServerSocket(5555);
         System.out.println("Server Opened...");
+
         for (int i = 0; i < 100; i++) {
             @Cleanup
             Socket clientSocket = serverSocket.accept();

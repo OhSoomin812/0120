@@ -33,6 +33,8 @@ public class FileCopy2 {
         @Cleanup
         OutputStream out = new FileOutputStream("C:\\zzz\\copy.jpg");
 
+        long start = System.currentTimeMillis();
+
         while(true) {
             int data = in3.read();
 //            System.out.println(data);
@@ -40,8 +42,12 @@ public class FileCopy2 {
             if(data == -1) {    // 더 이상 읽어야 하는 데이터가 없는 경우
                 break;
             }
+
+            out.write(data);
         }
 
-        System.out.println(in3);
+        long end = System.currentTimeMillis();
+
+        System.out.println(end - start);
     }
 }
